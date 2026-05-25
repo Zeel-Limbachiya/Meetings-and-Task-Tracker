@@ -100,9 +100,6 @@ public partial class MeetTrackDbContext : DbContext
                 .HasMaxLength(20)
                 .IsUnicode(false);
 
-            entity.HasOne(d => d.Emp).WithMany(p => p.Users)
-                .HasForeignKey(d => d.EmpId)
-                .HasConstraintName("FK_User_Employee");
         });
 
         OnModelCreatingPartial(modelBuilder);

@@ -12,8 +12,6 @@ public partial class User
     [Required]
     public string Password { get; set; } = null!;
 
-    public int? EmpId { get; set; }
-
     public string Role { get; set; } = null!;
 
     public virtual Employee? Emp { get; set; }

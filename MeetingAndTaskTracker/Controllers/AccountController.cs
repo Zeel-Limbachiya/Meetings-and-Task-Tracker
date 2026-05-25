@@ -35,6 +35,11 @@ namespace MeetingAndTaskTracker.Controllers
             }
         }
 
+        public IActionResult Register()
+        {
+            return View();
+        }
+
         public IActionResult Dashboard()
         {
             return View();

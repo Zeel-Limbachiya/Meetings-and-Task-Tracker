@@ -1,25 +1,15 @@
 ﻿@model MeetingAndTaskTracker.Models.User
 
 @{
-    ViewData["Title"] = "Login";
+    ViewData["Title"] = "Register";
 }
 
-<h1>Login</h1>
+<h1>Register</h1>
 
 <hr />
 <div class="row">
     <div class="col-md-4">
-
-        @{
-            if (ViewBag.Error != null)
-            {
-                <div class="alert alert-danger">
-                    @ViewBag.Error
-                </div>
-			}
-        }
-
-        <form asp-action="Login">
+        <form asp-action="Register">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="UserName" class="control-label"></label>
@@ -31,16 +21,20 @@
                 <input asp-for="Password" class="form-control" />
                 <span asp-validation-for="Password" class="text-danger"></span>
             </div>
-            <br />
             <div class="form-group">
-                <input type="submit" value="Login" class="btn btn-primary" />
+                <label asp-for="Role" class="control-label"></label>
+                <Select asp-for="Role" class="form-control">
+                    <option value="">Select Role</option>
+                </Select>
+                <span asp-validation-for="Role" class="text-danger"></span>
+            </div>
+            <br/>
+            <div class="form-group">
+                <input type="submit" value="Register" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
-
-<br/>
-Not registered yet? <a asp-controller="Account" asp-action="Register">Sign Up</a>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
