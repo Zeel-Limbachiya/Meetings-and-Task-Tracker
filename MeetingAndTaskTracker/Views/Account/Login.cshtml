@@ -17,6 +17,12 @@
                     @ViewBag.Error
                 </div>
 			}
+            if (TempData["Register_Success"] != null)
+            {
+                <div class="alert alert-success">
+                    @TempData["Register_Success"]
+                </div>
+            }
         }
 
         <form asp-action="Login">

@@ -23,7 +23,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Role" class="control-label"></label>
-                <Select asp-for="Role" class="form-control">
+                <Select asp-for="Role" class="form-control" asp-items=@ViewBag.Roles>
                     <option value="">Select Role</option>
                 </Select>
                 <span asp-validation-for="Role" class="text-danger"></span>

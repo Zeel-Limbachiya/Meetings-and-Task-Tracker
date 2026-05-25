@@ -99,7 +99,6 @@ public partial class MeetTrackDbContext : DbContext
             entity.Property(e => e.UserName)
                 .HasMaxLength(20)
                 .IsUnicode(false);
-
         });
 
         OnModelCreatingPartial(modelBuilder);

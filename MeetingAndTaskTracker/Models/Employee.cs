@@ -16,6 +16,4 @@ public partial class Employee
     public int DepartmentId { get; set; }
 
     public virtual Department Department { get; set; } = null!;
-
-    public virtual ICollection<User> Users { get; set; } = new List<User>();
 }

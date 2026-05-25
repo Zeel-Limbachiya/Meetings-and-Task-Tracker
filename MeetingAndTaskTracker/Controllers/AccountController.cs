@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using MeetingAndTaskTracker.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace MeetingAndTaskTracker.Controllers
 {
@@ -37,7 +38,32 @@ namespace MeetingAndTaskTracker.Controllers
 
         public IActionResult Register()
         {
+            List<SelectListItem> roles =
+            [
+                new SelectListItem {Value="Admin", Text="Admin"},
+                new SelectListItem {Value="Employee", Text="Employee"}
+            ];
+            ViewBag.Roles = roles;
             return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Register(User user)
+        {
+            if (ModelState.IsValid)
+            {
+                _Context.Users.Add(user);
+                await _Context.SaveChangesAsync();
+                TempData["Register_Success"] = "User Registered Successfully..";
+                return RedirectToAction(nameof(Login));
+            }
+            return View();
+        }
+
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToAction(nameof(Login));
         }
 
         public IActionResult Dashboard()
