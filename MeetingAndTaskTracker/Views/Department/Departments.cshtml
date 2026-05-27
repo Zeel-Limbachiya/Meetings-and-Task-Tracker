@@ -7,7 +7,7 @@
 <h1>Departments</h1>
 <br/>
 <p>
-    <a asp-action="Create" class="btn btn-primary">Add New Department</a>
+    <a asp-action="AddDepartment" class="btn btn-primary">Add New Department</a>
 </p>
 <table class="table">
     <thead>
@@ -25,8 +25,8 @@
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td class="text-end">
-                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-primary">Edit</a> 
-                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-primary">Delete</a>
+                <a asp-action="EditDepartment" asp-route-id="@item.Id" class="btn btn-outline-primary">Edit</a>
+                <a asp-action="DeleteDepartment" asp-route-id="@item.Id" class="btn btn-outline-primary">Delete</a>
             </td>
         </tr>
 }

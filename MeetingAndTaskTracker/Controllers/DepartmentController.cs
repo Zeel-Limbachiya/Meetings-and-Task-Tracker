@@ -36,7 +36,7 @@ namespace MeetingAndTaskTracker.Controllers
             return View(department);
         }
 
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> EditDepartment(int? id)
         {
             if (id == null)
                 return NotFound();
@@ -49,7 +49,7 @@ namespace MeetingAndTaskTracker.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, Department department)
+        public async Task<IActionResult> EditDepartment(int id, Department department)
         {
             if (id != department.Id)
                 return NotFound();
@@ -75,7 +75,7 @@ namespace MeetingAndTaskTracker.Controllers
 
         private bool DepartmentExists(int id) => _context.Departments.Any(e => e.Id == id);
 
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> DepartmentDetails(int? id)
         {
             if (id == null)
                 return NotFound();
@@ -86,7 +86,7 @@ namespace MeetingAndTaskTracker.Controllers
 
             return View(department);
         }
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> DeleteDepartment(int? id)
         {
             if (id == null)
                 return NotFound();
@@ -98,9 +98,9 @@ namespace MeetingAndTaskTracker.Controllers
             return View(department);
         }
 
-        [HttpPost, ActionName("Delete")]
+        [HttpPost, ActionName("DeleteDepartment")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteDepartmentConfirmed(int id)
         {
             var department = await _context.Departments.FindAsync(id);
             if (department != null)
