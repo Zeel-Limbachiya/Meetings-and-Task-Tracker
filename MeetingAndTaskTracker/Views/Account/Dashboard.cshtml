@@ -5,3 +5,29 @@
 
 <h1>Dashboard</h1>
 
+<br/> <br/>
+<div class="row">
+    <div class="col-md-4">
+        <a asp-controller="Department"
+           asp-action="Index"
+           class="text-decoration-none text-dark">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5>Departments</h5>
+                </div>
+            </div>
+        </a>
+    </div>
+    @* <br/> <br/> *@
+    <div class="col-md-4">
+        <a asp-controller="Employee"
+           asp-action="Index"
+           class="text-decoration-none text-dark">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5>Employees</h5>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
