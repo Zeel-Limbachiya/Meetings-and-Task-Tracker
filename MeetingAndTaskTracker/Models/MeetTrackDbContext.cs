@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace MeetingAndTaskTracker.Models;
 
@@ -62,6 +60,9 @@ public partial class MeetTrackDbContext : DbContext
 
             entity.Property(e => e.Email)
                 .HasMaxLength(50)
+                .IsUnicode(false);
+            entity.Property(e => e.Mobile)
+                .HasMaxLength(10)
                 .IsUnicode(false);
             entity.Property(e => e.Name)
                 .HasMaxLength(50)

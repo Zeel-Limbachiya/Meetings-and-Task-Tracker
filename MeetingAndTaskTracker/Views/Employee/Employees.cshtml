@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<MeetingAndTaskTracker.Models.Employee>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Employees";
 }
 
-<h1>Index</h1>
+<h1>Employees</h1>
 
 <p>
-    <a asp-action="Create">Add Employee</a>
+    <a asp-action="AddEmployee" class="btn btn-primary">Add Employee</a>
 </p>
 <table class="table">
     <thead>
@@ -40,14 +40,19 @@
                 @Html.DisplayFor(modelItem => item.Mobile)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Department.Id)
+                @Html.DisplayFor(modelItem => item.Department.Name)
             </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            <td class="text-end">
+                <a asp-action="EditEmployee" asp-route-id="@item.Id" class="btn btn-outline-primary">Edit</a> |
+                <a asp-action="EmployeeDetails" asp-route-id="@item.Id" class="btn btn-outline-primary">Details</a> |
+                <a asp-action="DeleteEmployee" asp-route-id="@item.Id" class="btn btn-outline-primary">Delete</a>
             </td>
         </tr>
 }
     </tbody>
 </table>
+
+
+<div>
+    <a asp-controller="Account" asp-action="Dashboard" class="btn btn-outline-primary">Go to Dashboard</a>
+</div>
